@@ -32,4 +32,8 @@ totalTravelers = totalTravelers + booking.travelers;
 
 console.log(totalTravelers);
 
+
+
+
+
 // task-05-javascript-loops.js
