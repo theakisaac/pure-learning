@@ -101,12 +101,12 @@ async function submitBooking() {
             body: JSON.stringify(booking)
 
             }
-
+        )
             if(!response.ok) {
                 throw new Error("Authentication failed. Try again!");
             }
 
-            let data = response.json();
+            let data = await response.json();
             console.log("Booking Successful:", data)
 
         
@@ -118,3 +118,12 @@ async function submitBooking() {
 
 
 };
+
+
+async function updateBooking() {
+let update = await fetch("https://example.com/bookings/1", {
+method: "PATCH",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({travelers: 3})
+})
+}
