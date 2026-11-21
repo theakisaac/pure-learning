@@ -1,142 +1,160 @@
 
-// async function getMoreInfo() {
+async function getMoreInfo() {
 
-//     try{
-//         let response = await fetch("https://www.example.com/api")
+    try{
+        let response = await fetch("https://www.example.com/api")
         
-//         if(!response.ok) {
-//             throw new Error("Sorry, an error occured. Try again later!")
-//         }
+        if(!response.ok) {
+            throw new Error("Sorry, an error occured. Try again later!")
+        }
 
-//         let data = await response.json();
-//         console.log(data)
-//     } catch(error){
-//         console.log("Error:", error.message)
-//     }
-// }
+        let data = await response.json();
+        console.log(data)
+    } catch(error){
+        console.log("Error:", error.message)
+    }
+}
 
-// getMoreInfo();
-
-
-// async function getTravelPackage() {
-
-//     try {
-//         let response = await fetch("https://example.com/api/packages")
-
-//         if(!response.ok) {
-//             throw new Error("Error occured. Try again!")
-//         }
-//         let data = await response.json();
-//         console.log(data.destination)
-//         console.log(data.price)
-
-//     } catch(error) {
-//         console.log(error.message)
-//     }
+getMoreInfo();
 
 
-// }
+async function getTravelPackage() {
 
-// getTravelPackage()
+    try {
+        let response = await fetch("https://example.com/api/packages")
 
+        if(!response.ok) {
+            throw new Error("Error occured. Try again!")
+        }
+        let data = await response.json();
+        console.log(data.destination)
+        console.log(data.price)
 
-// async function getUserDetails() {
-
-//     try{
-//         let response = await fetch("https://jsonplaceholder.typicode.com/users/1?utm_source=chatgpt.com")
-//         if(!response.ok){
-//             throw new Error("Sorry, an error occured")
-//         }
-
-//         let data = await response.json();
-//         console.log(data.username)
-//         console.log(data.email)
-//         console.log(data.address.city)
-
-//     }catch(error) {
-//         console.log("Error:", error.message)
-//     }
+    } catch(error) {
+        console.log(error.message)
+    }
 
 
+}
 
-// }
-// getUserDetails()
-
-
-// node task-16-work-with-api.js
+getTravelPackage()
 
 
-// async function getUserInfo() {
+async function getUserDetails() {
 
-//     try{
-//         let details = await fetch("https://jsonplaceholder.typicode.com/posts")
-//         if(!details.ok) {
-//             throw new Error("Unable to get infomation. Please try again!")
-//         }
+    try{
+        let response = await fetch("https://jsonplaceholder.typicode.com/users/1?utm_source=chatgpt.com")
+        if(!response.ok){
+            throw new Error("Sorry, an error occured")
+        }
 
-//         let moreDetails = await details.json();
-//         let filteredDetails = moreDetails.filter(info => info.id === 6);
-//         console.log(filteredDetails)
+        let data = await response.json();
+        console.log(data.username)
+        console.log(data.email)
+        console.log(data.address.city)
 
-//     } catch(error){
-//         console.log("Error:", error.message)
-//     }
-// }
-
-// getUserInfo();
-
-// let packages = [
-//   { destination: "Zambia", price: 150000 },
-//   { destination: "Rwanda", price: 200000 },
-//   { destination: "Kenya", price: 180000 }
-// ];
+    }catch(error) {
+        console.log("Error:", error.message)
+    }
 
 
-// async function submitBooking() {
-//     try{
 
-//         let response = await fetch("https://example.com/booking",
-//             {method: "POST",
-//                 heading: { "Content-Type": "application.json"},
-//             body: JSON.stringify(booking)
+}
+getUserDetails()
 
-//             }
-//         )
-//             if(!response.ok) {
-//                 throw new Error("Authentication failed. Try again!");
-//             }
 
-//             let data = await response.json();
-//             console.log("Booking Successful:", data)
+
+
+async function getUserInfo() {
+
+    try{
+        let details = await fetch("https://jsonplaceholder.typicode.com/posts")
+        if(!details.ok) {
+            throw new Error("Unable to get infomation. Please try again!")
+        }
+
+        let moreDetails = await details.json();
+        let filteredDetails = moreDetails.filter(info => info.id === 6);
+        console.log(filteredDetails)
+
+    } catch(error){
+        console.log("Error:", error.message)
+    }
+}
+
+getUserInfo();
+
+let packages = [
+  { destination: "Zambia", price: 150000 },
+  { destination: "Rwanda", price: 200000 },
+  { destination: "Kenya", price: 180000 }
+];
+
+
+async function submitBooking() {
+    try{
+
+        let response = await fetch("https://example.com/booking",
+            {method: "POST",
+                heading: { "Content-Type": "application.json"},
+            body: JSON.stringify(booking)
+
+            }
+        )
+            if(!response.ok) {
+                throw new Error("Authentication failed. Try again!");
+            }
+
+            let data = await response.json();
+            console.log("Booking Successful:", data)
 
         
 
 
-//     } catch(error) {
-//         console.log(error.message)
-//     }
+    } catch(error) {
+        console.log(error.message)
+    }
 
 
-// };
+};
 
 
-// async function updateBooking() {
-// let update = await fetch("https://example.com/bookings/1", {
-// method: "PATCH",
-// headers: {"Content-Type": "application/json"},
-// body: JSON.stringify({travelers: 3})
-// })
-// }
+async function updateBooking() {
+let update = await fetch("https://example.com/bookings/1", {
+method: "PATCH",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({travelers: 3})
+})
+}
 
-let params = new URLSearchParams({
-    id: 1,
-    name: "Isaac",
-    destination:"Canada",
-    price: 1400000
-});
 
-console.log(params.toString());
+async function retrievePackages() {
+let isLoading = true;
 
-("https://akisaac.com?page=1&limit=10")
+try {
+console.log("Please wait, packages loading...");
+
+let response = await fetch("https://www.theakisaac.com/booking")
+
+if(!response.ok) {
+    throw new Error("Loading failed. Please try again!")
+}
+
+let data = await response.json();
+console.log("Booking retrieved:", data)
+
+} catch(error) {
+    console.log("Error:", error.message)
+
+} finally {
+isLoading = false
+console.log("Packages ended", isLoading)
+}
+
+
+}
+
+retrievePackages()
+
 
 // node task-16-work-with-api.js
