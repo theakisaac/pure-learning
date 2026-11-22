@@ -51,8 +51,6 @@ let randomNumber = Math.floor(Math.random() * 10);
 
 console.log(randomNumber)
 
-// node task-19-exercise.js
-
 
 let mainPackages = [
   { destination: "Zambia", price: 150000 },
@@ -71,3 +69,5 @@ let mappedPackages  = travelPackages.map(package =>
 )
 
 console.log(mappedPackages)
+
+
