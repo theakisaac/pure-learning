@@ -47,4 +47,27 @@ console.log(validPackages);
 let totalValue = validPackages.reduce((total, package) => total + package.price, 0);
 console.log(totalValue);
 
+let randomNumber = Math.floor(Math.random() * 10);
+
+console.log(randomNumber)
+
 // node task-19-exercise.js
+
+
+let mainPackages = [
+  { destination: "Zambia", price: 150000 },
+  { destination: "Rwanda", price: 200000 },
+  { destination: "Kenya", price: 180000 },
+  { destination: "Ghana", price: 120000 }
+];
+
+let travelPackages = mainPackages.filter(package => package.price < 180000)
+
+let mappedPackages  = travelPackages.map(package => 
+(`${package.destination} - ${package.price.toLocaleString("en-CD", {
+    style: "currency",
+    currency: "CAD"
+})}`)
+)
+
+console.log(mappedPackages)
